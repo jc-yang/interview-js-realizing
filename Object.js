@@ -3,6 +3,7 @@ function myNew(constructor, ...args) {
     // 创建空对象
     let obj = {}; // 等价于 new Object()
     obj.__proto__ = constructor.prototype; // 继承构造函数的 prototype 属性
+    // 或使用 let obj = Object.create(constructor.prototype)
 
     // 执行构造函数并将 this 绑定到新创建的对象上
     let res = constructor.call(obj, ...args);
