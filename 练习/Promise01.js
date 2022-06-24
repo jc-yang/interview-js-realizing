@@ -33,9 +33,9 @@ function promiseRace(promises) {
 }
 
 // Promise.allSettled
-function promiseAllSettled(promises): Promise {
+function promiseAllSettled(promises) {
     return new Promise((resolve, reject) => {
-        const result: PromiseSettledResult[] = [];
+        const result = [];
         let count = 0;
         promises.forEach((promise, index) => {
             promise.then(res => {
