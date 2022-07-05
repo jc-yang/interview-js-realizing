@@ -8,7 +8,7 @@ function myNew(constructor, ...args) {
     // 执行构造函数并将 this 绑定到新创建的对象上
     let res = constructor.call(obj, ...args);
 
-    // 如果原来构造函数中返回的是一个对象，那实例就只能访问这个对象里的值。需要将这个对线返回
+    // 如果原来构造函数中返回的是一个对象，那实例就只能访问这个对象里的值。需要将这个对像返回
     if(typeof res === 'object' && res !== null) return res;
     // 否则就还是返回新建的这个对象
     return obj;
@@ -57,3 +57,4 @@ function objectAssign(target, ...sources) {
     })
     return res;
 }
+
