@@ -9,6 +9,27 @@
 </head>
 <body>
     <p>test js</p>
-    <script src="./深拷贝.js"></script>
+<!--    <script src="./深拷贝.js"></script>-->
+    <script src="Promise实现.js"></script>
+<script>
+    const promise = new MyPromise((resolve, reject) => {
+        // resolve(100);
+        setTimeout(()=> {
+            resolve(100)
+        }, 1000)
+    })
+
+    const p1 = promise.then(data1 => {
+        console.log('data1', data1)
+    })
+    const p2 = promise.then(data2 => {
+        console.log('data2', data2)
+    })
+    const p3 = promise.then(data3 => {
+        console.log('data3', data3)
+    })
+
+
+</script>
 </body>
 </html>

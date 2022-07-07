@@ -38,7 +38,7 @@ Promise.prototype.finally = function (cb) {
     })
 }
 
-// Promise.race
+// Promise.race，有一个成功或失败(率先改变状态)，就返回这个成功或失败的promise
 function promiseRace(promises) {
     return new Promise((resolve, reject) => {
         promises.forEach(promise => {
@@ -47,7 +47,22 @@ function promiseRace(promises) {
     })
 }
 
-// Promise.allSettled
+// Promise.any，有一个成功就返回这个成功，否则reject
+function promiseAny(promises) {
+    return new Promise((resolve, reject) => {
+        let count = 0;
+        promises.forEach((promise, index) => {
+            promise.then(res => resolve(res), err => {
+                count++;
+                if(count === promises.length) {
+                    reject(new Error('All Promises rejected'))
+                }
+            });
+        })
+    })
+}
+
+// Promise.allSettled， 所有 promise 都返回结果，就返回这些结果
 function promiseAllSettled(promises) {
     return new Promise((resolve, reject) => {
         const result = [];
