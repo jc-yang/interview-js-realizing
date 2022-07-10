@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圣杯布局</title>
+</head>
+<body>
+    <div id="header">this is header</div>
+    <div id="container">
+        <div id="center" class="column">this is center</div>
+        <div id="left" class="column">this is left</div>
+        <div id="right" class="column">this is right</div>
+    </div>
+    <div id="footer">this is footer</div>
+</body>
+<style>
+    #header {
+        text-align: center;
+        background-color: #f1f1f1;
+    }
+    #center {
+        background-color: #ccc;
+        width: 100%;
+    }
+    #left {
+        background-color: aquamarine;
+        width: 200px;
+
+        /*margin-left设置为-父元素宽度，往左拖拽到了容器内最左边*/
+        margin-left: -100%;
+        /*再把内容左移到padding里*/
+        position: relative;
+        right: 200px;
+    }
+    #right {
+        background-color: chocolate;
+        width: 150px;
+
+        /*相当于对外部，宽度变为了0*/
+        margin-right: -150px;
+    }
+    #footer {
+        text-align: center;
+        background-color: #f1f1f1;
+
+        /*清除浮动影响*/
+        clear: both;
+    }
+    .column {
+        /*设置浮动*/
+        float: left;
+    }
+    #container {
+        /*容纳左右列*/
+        padding-left: 200px;
+        padding-right: 150px;
+    }
+</style>
+</html>
