@@ -27,6 +27,7 @@ function throttle(fn, delay = 100) {
         if(timer) return;
         timer = setTimeout(() => {
             fn.apply(this, arguments);
+            // fn(...args)
             timer = null;
         }, delay)
     }
@@ -36,5 +37,4 @@ function throttle(fn, delay = 100) {
 const div1 = document.querySelector('#div1');
 div1.addEventListener('drag', throttle( (e) => {
     console.log(e.offsetX, e.offsetY)
-    console.log(this)
 }, 500))
