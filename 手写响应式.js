@@ -4,13 +4,12 @@ function updateView() {
 }
 
 // 重新定义数组原型
-const oldArrProto = Array.prototype;
 // 创建新对象，原型指向 oldArrProto，再扩展新的方法不会影响原原型
-const arrProto = Object.create(oldArrProto);
+const arrProto = Object.create(Array.prototype);
 // 重写一些修改数组的方法，修改数组时，更新视图
 ['push', 'pop', 'shift', 'unshift', 'splice'].forEach(methodName => {
     arrProto[methodName] = function () {
-        oldArrProto[methodName].call(this, ...arguments);
+        Array.prototype[methodName].call(this, ...arguments);
         updateView(); // 更新视图
     }
 })
