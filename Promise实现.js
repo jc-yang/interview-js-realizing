@@ -95,9 +95,9 @@ class MyPromise {
 
     finally(fn) {
         return this.then(res => {
-            return MyPromise.resolve(fn).then(() => res)
+            return MyPromise.resolve(fn()).then(() => res)
         }, err => {
-            return MyPromise.resolve(fn).then(() => { throw err });
+            return MyPromise.resolve(fn()).then(() => { throw err });
         })
     }
 
